@@ -31,6 +31,25 @@ class SomeClass:
 >>> message = '''interpreter
 ... prompt'''
 ```
+``` php
+
+namespace Qwadmin\Controller;
+use Qwadmin\Controller\ComController;
+use Vendor\Tree;
+
+class ArticleController extends ComController {
+
+	public function add(){
+		
+		$category = M('category')->field('id,pid,name')->order('o asc')->select();
+		$tree = new Tree($category);
+		$str = "<option value=\$id \$selected>\$spacer\$name</option>"; //生成的形式
+		$category = $tree->get_tree(0,$str,0);
+		$this->assign('category',$category);//导航
+		$this -> display();
+	}
+}
+```
 ### LaTeX 公式
 
 可以创建行内公式，例如 $\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$。或者块级公式：
