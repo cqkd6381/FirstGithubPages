@@ -1,163 +1,100 @@
-# 欢迎使用马克飞象
+English | [简体中文](./README.zh-CN.md)
 
-@(示例笔记本)[马克飞象|帮助|Markdown]
+<h1 align="center">Ant Design Vue Pro</h1>
+<div align="center">
+An out-of-box UI solution for enterprise applications as a Vue boilerplate. based on  <a href="https://vuecomponent.github.io/ant-design-vue/docs/vue/introduce-cn/" target="_blank">Ant Design of Vue</a>
+</div>
 
-**马克飞象**是一款专为印象笔记（Evernote）打造的Markdown编辑器，通过精心的设计与技术实现，配合印象笔记强大的存储和同步功能，带来前所未有的书写体验。特点概述：
- 
-- **功能丰富** ：支持高亮代码块、*LaTeX* 公式、流程图，本地图片以及附件上传，甚至截图粘贴，工作学习好帮手；
-- **得心应手** ：简洁高效的编辑器，提供[桌面客户端][1]以及[离线Chrome App][2]，支持移动端 Web；
-- **深度整合** ：支持选择笔记本和添加标签，支持从印象笔记跳转编辑，轻松管理。
+<div align="center">
 
---------------
+[![License](https://img.shields.io/npm/l/package.json.svg?style=flat)](https://github.com/vueComponent/ant-design-vue-pro/blob/master/LICENSE)
+[![Release](https://img.shields.io/github/release/vueComponent/ant-design-vue-pro.svg?style=flat)](https://github.com/vueComponent/ant-design-vue-pro/releases/latest)
+[![Support Vue Version](https://img.shields.io/badge/Support-Vue2-green?style=flat)](https://github.com/vueComponent/ant-design-vue-pro/releases/latest)
+[![Travis branch](https://travis-ci.org/vueComponent/ant-design-vue-pro.svg?branch=master)](https://travis-ci.org/vueComponent/ant-design-vue-pro)
 
-[TOC]
+</div>
 
-## Markdown简介
+- Preview: https://preview.pro.antdv.com
+- Home Page: https://pro.antdv.com
+- Documentation: https://pro.antdv.com/docs/getting-started
+- ChangeLog: https://pro.antdv.com/docs/changelog
+- FAQ: https://pro.antdv.com/docs/faq
+- Vue3 ProLayout: https://github.com/vueComponent/pro-layout
 
-> Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档，然后转换成格式丰富的HTML页面。    —— [维基百科](https://zh.wikipedia.org/wiki/Markdown)
+Overview
+----
+### Env and dependencies
 
-正如您在阅读的这份文档，它使用简单的符号标识不同的标题，将某些文字标记为**粗体**或者*斜体*，创建一个[链接](http://www.example.com)或一个脚注[^demo]。下面列举了几个高级功能，更多语法请按`Ctrl + /`查看帮助。 
+- node
+- yarn
+- webpack
+- eslint
+- @vue/cli
+- [ant-design-vue@1.x](https://github.com/vueComponent/ant-design-vue) - Ant Design Of Vue 
+- [vue-cropper](https://github.com/xyxiao001/vue-cropper) - Picture edit
+- [@antv/g2](https://antv.alipay.com/zh-cn/index.html) - AntV G2
+- [Viser-vue](https://viserjs.github.io/docs.html#/viser/guide/installation)  - Antv/G2 of Vue
 
-### 代码块
-``` python
-@requires_authorization
-def somefunc(param1='', param2=0):
-    '''A docstring'''
-    if param1 > param2: # interesting
-        print 'Greater'
-    return (param2 - param1 + 1) or None
-class SomeClass:
-    pass
->>> message = '''interpreter
-... prompt'''
-```
-``` php
+> Note:  [Yarn](https://yarnpkg.com/) package management is recommended, the exact same version loaded with the demo site of this project (yarn.lock) . but you can also use npm
 
-namespace Qwadmin\Controller;
-use Qwadmin\Controller\ComController;
-use Vendor\Tree;
 
-class ArticleController extends ComController {
+### Project setup
 
-	public function add(){
-		
-		$category = M('category')->field('id,pid,name')->order('o asc')->select();
-		$tree = new Tree($category);
-		$str = "<option value=\$id \$selected>\$spacer\$name</option>"; //生成的形式
-		$category = $tree->get_tree(0,$str,0);
-		$this->assign('category',$category);//导航
-		$this -> display();
-	}
-}
-```
-### LaTeX 公式
-
-可以创建行内公式，例如 $\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$。或者块级公式：
-
-$$	x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$
-
-### 表格
-| Item      |    Value | Qty  |
-| :-------- | --------:| :--: |
-| Computer  | 1600 USD |  5   |
-| Phone     |   12 USD |  12  |
-| Pipe      |    1 USD | 234  |
-
-### 流程图
-```flow
-st=>start: Start
-e=>end
-op=>operation: My Operation
-cond=>condition: Yes or No?
-
-st->op->cond
-cond(yes)->e
-cond(no)->op
+- Clone repo
+```bash
+git clone https://github.com/vueComponent/ant-design-vue-pro.git
+cd ant-design-vue-pro
 ```
 
-以及时序图:
-
-```sequence
-Alice->Bob: Hello Bob, how are you?
-Note right of Bob: Bob thinks
-Bob-->Alice: I am good thanks!
+- Install dependencies
+```
+yarn install
 ```
 
-> **提示：**想了解更多，请查看**流程图**[语法][3]以及**时序图**[语法][4]。
+- Compiles and hot-reloads for development
+```
+yarn run serve
+```
 
-### 复选框
+- Compiles and minifies for production
+```
+yarn run build
+```
 
-使用 `- [ ]` 和 `- [x]` 语法可以创建复选框，实现 todo-list 等功能。例如：
-
-- [x] 已完成事项
-- [ ] 待办事项1
-- [ ] 待办事项2
-
-> **注意：**目前支持尚不完全，在印象笔记中勾选复选框是无效、不能同步的，所以必须在**马克飞象**中修改 Markdown 原文才可生效。下个版本将会全面支持。
-
-
-## 印象笔记相关
-
-### 笔记本和标签
-**马克飞象**增加了`@(笔记本)[标签A|标签B]`语法, 以选择笔记本和添加标签。 **绑定账号后**， 输入`(`自动会出现笔记本列表，请从中选择。
-
-### 笔记标题
-**马克飞象**会自动使用文档内出现的第一个标题作为笔记标题。例如本文，就是第一行的 `欢迎使用马克飞象`。
-
-### 快捷编辑
-保存在印象笔记中的笔记，右上角会有一个红色的编辑按钮，点击后会回到**马克飞象**中打开并编辑该笔记。
->**注意：**目前用户在印象笔记中单方面做的任何修改，马克飞象是无法自动感知和更新的。所以请务必回到马克飞象编辑。
-
-### 数据同步
-**马克飞象**通过**将Markdown原文以隐藏内容保存在笔记中**的精妙设计，实现了对Markdown的存储和再次编辑。既解决了其他产品只是单向导出HTML的单薄，又规避了服务端存储Markdown带来的隐私安全问题。这样，服务端仅作为对印象笔记 API调用和数据转换之用。
-
- >**隐私声明：用户所有的笔记数据，均保存在印象笔记中。马克飞象不存储用户的任何笔记数据。**
-
-### 离线存储
-**马克飞象**使用浏览器离线存储将内容实时保存在本地，不必担心网络断掉或浏览器崩溃。为了节省空间和避免冲突，已同步至印象笔记并且不再修改的笔记将删除部分本地缓存，不过依然可以随时通过`文档管理`打开。
-
-> **注意：**虽然浏览器存储大部分时候都比较可靠，但印象笔记作为专业云存储，更值得信赖。以防万一，**请务必经常及时同步到印象笔记**。
-
-## 编辑器相关
-### 设置
-右侧系统菜单（快捷键`Ctrl + M`）的`设置`中，提供了界面字体、字号、自定义CSS、vim/emacs 键盘模式等高级选项。
-
-### 快捷键
-
-帮助    `Ctrl + /`
-同步文档    `Ctrl + S`
-创建文档    `Ctrl + Alt + N`
-最大化编辑器    `Ctrl + Enter`
-预览文档 `Ctrl + Alt + Enter`
-文档管理    `Ctrl + O`
-系统菜单    `Ctrl + M` 
-
-加粗    `Ctrl + B`
-插入图片    `Ctrl + G`
-插入链接    `Ctrl + L`
-提升标题    `Ctrl + H`
-
-## 关于收费
-
-**马克飞象**为新用户提供 10 天的试用期，试用期过后需要[续费](maxiang.info/vip.html)才能继续使用。未购买或者未及时续费，将不能同步新的笔记。之前保存过的笔记依然可以编辑。
+- Lints and fixes files
+```
+yarn run lint
+```
 
 
-## 反馈与建议
-- 微博：[@马克飞象](http://weibo.com/u/2788354117)，[@GGock](http://weibo.com/ggock "开发者个人账号")
-- 邮箱：<hustgock@gmail.com>
+### Other
 
----------
-感谢阅读这份帮助文档。请点击右上角，绑定印象笔记账号，开启全新的记录与分享体验吧。
+- **IMPORTANT : Issue feedback !! when opening Issue read [Issue / PR Contributing](https://github.com/vueComponent/ant-design-vue-pro/issues/90)**
+
+- [Vue-cli3](https://cli.vuejs.org/guide/) used by the project.
+
+- Disable Eslint (not recommended): remove `eslintConfig`  field in `package.json`  and `vue.config.js` field `lintOnSave: false`
+
+- Load on Demand `/src/main.js` L14, in `import './core/lazy_use'`, `import './core/use''`. more [load-on-demand.md](./docs/load-on-demand.md)
+
+- Customize Theme:  [Custom Theme Config (@kokoroli)](https://github.com/kokoroli/antd-awesome/blob/master/docs/Ant_Design_%E6%A0%B7%E5%BC%8F%E8%A6%86%E7%9B%96.md)
+
+- I18n: [locales (@musnow)](./src/locales/index.js)
+
+- Production env `mock` is disabled. use `src/mock/index.js`
+
+- pls use `release` version
+
+## Browsers support
+
+Modern browsers and IE10.
+
+| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera |
+| --- | --- | --- | --- | --- |
+| IE10, Edge | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
 
 
+## Contributors
 
-
-[^demo]: 这是一个示例脚注。请查阅 [MultiMarkdown 文档](https://github.com/fletcher/MultiMarkdown/wiki/MultiMarkdown-Syntax-Guide#footnotes) 关于脚注的说明。 **限制：** 印象笔记的笔记内容使用 [ENML][5] 格式，基于 HTML，但是不支持某些标签和属性，例如id，这就导致`脚注`和`TOC`无法正常点击。
-
-
-  [1]: http://maxiang.info/client_zh
-  [2]: https://chrome.google.com/webstore/detail/kidnkfckhbdkfgbicccmdggmpgogehop
-  [3]: http://adrai.github.io/flowchart.js/
-  [4]: http://bramp.github.io/js-sequence-diagrams/
-  [5]: https://dev.yinxiang.com/doc/articles/enml.php
-
+This project exists thanks to all the people who contribute. 
+<a href="https://github.com/vueComponent/ant-design-vue-pro/graphs/contributors"><img src="https://opencollective.com/ant-design-pro-vue/contributors.svg?width=890&button=false" /></a>
