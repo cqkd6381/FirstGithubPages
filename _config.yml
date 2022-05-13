@@ -1,2 +1,11 @@
 title: Octocat's homepage
 description: Bookmark this to keep an eye on my project updates!
+defaults:
+  -
+    scope:
+      path: "projects"
+      type: "pages"
+    values:
+      layout: "project"
+      author: "Mr. Hyde"
+      category: "project"
