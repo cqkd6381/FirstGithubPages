@@ -1,3 +1,6 @@
+---
+permalink: /README.zh-CN.html
+---
 [English](./index.md) | 简体中文
 
 <h1 align="center">Ant Design Vue Pro</h1>
